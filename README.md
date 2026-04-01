@@ -2,7 +2,7 @@
 
 **Advanced geodiversity analysis with hybrid landform modelling (vector + geomorphon).**
 
-This expert version extends the standard workflow with a **powerful, flexible geomorphology engine**, allowing users to combine **vector-based landform classification** and **DEM-derived geomorphon analysis** into a unified geodiversity framework :contentReference[oaicite:0]{index=0}.
+This expert version extends the standard workflow with a **powerful, flexible geomorphology engine**, allowing users to combine **vector-based landform classification** and **DEM-derived geomorphon analysis** into a unified geodiversity framework.
 
 ---
 
