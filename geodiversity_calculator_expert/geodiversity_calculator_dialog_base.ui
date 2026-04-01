@@ -1,0 +1,823 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui version="4.0">
+ <class>GeodiversityCalculatorMaxProDialogBase</class>
+ <widget class="QDialog" name="GeodiversityCalculatorMaxProDialogBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>560</width>
+    <height>620</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>GeodiversityCalculator Expert v0.99</string>
+  </property>
+  <property name="styleSheet">
+   <string>QDialog {
+    background-color: #f5f5f5;
+}
+QGroupBox {
+    font-weight: bold;
+    border: 2px solid #3498db;
+    border-radius: 6px;
+    margin-top: 10px;
+    padding-top: 10px;
+    background-color: white;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    padding: 5px 10px;
+    color: #2c3e50;
+    background-color: #3498db;
+    color: white;
+    border-radius: 4px;
+}
+QLabel {
+    font-size: 10pt;
+    color: #2c3e50;
+}
+QLineEdit {
+    padding: 6px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 9pt;
+}
+QLineEdit:focus {
+    border: 2px solid #3498db;
+}
+QLineEdit:disabled {
+    background-color: #ecf0f1;
+}
+QPushButton {
+    padding: 6px 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 9pt;
+}
+QPushButton:hover {
+    background-color: #2980b9;
+}
+QPushButton:pressed {
+    background-color: #1f5f8b;
+}
+QDialogButtonBox QPushButton {
+    min-width: 80px;
+    padding: 8px 16px;
+}
+   </string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>8</number>
+   </property>
+   <property name="leftMargin">
+    <number>10</number>
+   </property>
+   <property name="topMargin">
+    <number>10</number>
+   </property>
+   <property name="rightMargin">
+    <number>10</number>
+   </property>
+   <property name="bottomMargin">
+    <number>10</number>
+   </property>
+   <item>
+    <widget class="QScrollArea" name="scrollArea_main">
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>528</width>
+        <height>980</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_scroll">
+       <property name="spacing">
+        <number>12</number>
+       </property>
+       <property name="leftMargin">
+        <number>5</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>5</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="label_title">
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>GeodiversityCalculator Expert v0.99</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+       </item>
+       <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Required Inputs</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_16">
+        <property name="text">
+         <string>Result Folder:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit_16">
+        <property name="toolTip">
+         <string>Folder where all output files will be saved</string>
+        </property>
+        <property name="placeholderText">
+         <string>Select working directory...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="pushButton_14">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Boundary Layer:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="toolTip">
+         <string>Study area boundary polygon (GPKG or SHP format)</string>
+        </property>
+        <property name="placeholderText">
+         <string>Select boundary layer...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Grid H-Spacing (m):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="lineEdit_3">
+        <property name="text">
+         <string />
+        </property>
+        <property name="toolTip">
+         <string>Grid cell width in meters.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Grid V-Spacing (m):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="lineEdit_4">
+        <property name="text">
+         <string />
+        </property>
+        <property name="toolTip">
+         <string>Grid cell height in meters.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_14">
+        <property name="text">
+         <string>Normalize Subindices (0-1):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1" colspan="2">
+       <widget class="QLineEdit" name="lineEdit_14">
+        <property name="toolTip">
+         <string>Name for the output grid file (without extension). Result will be saved as .gpkg</string>
+        </property>
+        <property name="placeholderText">
+         <string>Enter grid name (e.g., geodiv_result)</string>
+        </property>
+       </widget>
+      </item>
+
+      
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_gridshape">
+        <property name="text">
+         <string>Grid shape:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1" colspan="2">
+       <widget class="QWidget" name="widget_gridshape" native="true">
+        <layout class="QHBoxLayout" name="horizontalLayout_gridshape">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QRadioButton" name="radioButton_rectangle">
+           <property name="text">
+            <string>Rectangle</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_diamond">
+           <property name="text">
+            <string>Diamond</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_hexagon">
+           <property name="text">
+            <string>Hexagon</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+
+<item row="5" column="0">
+       <widget class="QLabel" name="label_normalize">
+        <property name="text">
+         <string>Output Grid Name:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QCheckBox" name="checkBox_normalize">
+        <property name="text">
+         <string />
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="label_show_sublayers">
+        <property name="text">
+         <string>Open Intermediate Layers in QGIS:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QCheckBox" name="checkBox_show_sublayers">
+        <property name="text">
+         <string />
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>Optional Inputs</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Geology Layer:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit_5">
+        <property name="toolTip">
+         <string>Geological polygon layer (GPKG or SHP). Optional - contributes to geology variety index</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Geology Field:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEdit_6">
+        <property name="toolTip">
+         <string>Attribute field name containing geological classification (e.g., GEOL_TYPE, Formation)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>Pedology Layer:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="lineEdit_7">
+        <property name="toolTip">
+         <string>Soil/pedology polygon layer (GPKG or SHP). Optional - contributes to pedology variety index</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QPushButton" name="pushButton_5">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>Pedology Field:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="lineEdit_8">
+        <property name="toolTip">
+         <string>Attribute field name containing soil type classification (e.g., SOIL_TYPE, Class)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_9">
+        <property name="text">
+         <string>DEM Raster (optional):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="lineEdit_9">
+        <property name="toolTip">
+         <string>Digital Elevation Model raster (GeoTIFF). Optional - used for DEM-derived geomorphon and/or hydrography (Strahler) depending on the selected geomorphology source</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QPushButton" name="pushButton_7">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="label_17">
+        <property name="text">
+         <string>Lakes Layer:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QLineEdit" name="lineEdit_17">
+        <property name="toolTip">
+         <string>Lakes/seas polygon layer (GPKG or SHP). Optional - adds water body diversity component</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="2">
+       <widget class="QPushButton" name="pushButton_13">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="label_12">
+        <property name="text">
+         <string>Mineralogy Layer:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLineEdit" name="lineEdit_12">
+        <property name="toolTip">
+         <string>Mineralogy point layer (GPKG or SHP). Optional - mineral occurrence diversity</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="2">
+       <widget class="QPushButton" name="pushButton_10">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="label_10">
+        <property name="text">
+         <string>Mineralogy Field:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QLineEdit" name="lineEdit_10">
+        <property name="toolTip">
+         <string>Attribute field containing mineral type (e.g., MINERAL, Type)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0">
+       <widget class="QLabel" name="label_13">
+        <property name="text">
+         <string>Palaeontology Layer:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="1">
+       <widget class="QLineEdit" name="lineEdit_13">
+        <property name="toolTip">
+         <string>Palaeontology/fossil point layer (GPKG or SHP). Optional - fossil occurrence diversity</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="2">
+       <widget class="QPushButton" name="pushButton_11">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="0">
+       <widget class="QLabel" name="label_11">
+        <property name="text">
+         <string>Palaeontology Field:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="1">
+       <widget class="QLineEdit" name="lineEdit_11">
+        <property name="toolTip">
+         <string>Attribute field containing fossil type (e.g., FOSSIL, Species)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_geom_source">
+        <property name="text">
+         <string>Geomorphology source:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1" colspan="2">
+       <widget class="QComboBox" name="comboBox_geom_source">
+        <item>
+         <property name="text">
+          <string>Vector geomorphology (lines + polygons + points)</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Geomorphon (from DEM)</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Uploaded geomorphon raster</string>
+         </property>
+        </item>
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0" colspan="3">
+       <widget class="QStackedWidget" name="stackedWidget_geom">
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="page_geom_vector">
+         <layout class="QGridLayout" name="gridLayout_geom_vector">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_geom_line">
+            <property name="text">
+             <string>Structural lines:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="lineEdit_geom_line">
+            <property name="toolTip">
+             <string>Line layer (GPKG/SHP) of geomorphological lines. Optional in vector mode.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="pushButton_geom_line">
+            <property name="text">
+             <string>Browse...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_geom_line_field">
+            <property name="text">
+             <string>Lines class field:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="2">
+           <widget class="QLineEdit" name="lineEdit_geom_line_field">
+            <property name="toolTip">
+             <string>Attribute field containing line type/class. Required if the line layer is provided.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_geom_poly">
+            <property name="text">
+             <string>Landform polygons:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="lineEdit_geom_poly">
+            <property name="toolTip">
+             <string>Polygon layer (GPKG/SHP) of landforms. Optional in vector mode.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QPushButton" name="pushButton_geom_poly">
+            <property name="text">
+             <string>Browse...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_geom_poly_field">
+            <property name="text">
+             <string>Polygons class field:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1" colspan="2">
+           <widget class="QLineEdit" name="lineEdit_geom_poly_field">
+            <property name="toolTip">
+             <string>Attribute field containing polygon landform class. Required if the polygon layer is provided.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_geom_point">
+            <property name="text">
+             <string>Landform points:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="lineEdit_geom_point">
+            <property name="toolTip">
+             <string>Point layer (GPKG/SHP) of geomorphological point objects. Optional in vector mode.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="2">
+           <widget class="QPushButton" name="pushButton_geom_point">
+            <property name="text">
+             <string>Browse...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_geom_point_field">
+            <property name="text">
+             <string>Points class field:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1" colspan="2">
+           <widget class="QLineEdit" name="lineEdit_geom_point_field">
+            <property name="toolTip">
+             <string>Attribute field containing point geomorphology class. Required if the point layer is provided.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0" colspan="3">
+           <widget class="QLabel" name="label_geom_vector_hint">
+            <property name="text">
+             <string>In vector mode, the DEM above is optional and will be used only for hydrography (Strahler).</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_geom_geomorphon">
+         <layout class="QGridLayout" name="gridLayout_geomorphon">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_gm_search">
+            <property name="text">
+             <string>Search radius:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="spinBox_geomorphon_search">
+            <property name="minimum"><number>1</number></property>
+            <property name="maximum"><number>100</number></property>
+            <property name="value"><number>3</number></property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_gm_skip">
+            <property name="text">
+             <string>Skip radius:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QSpinBox" name="spinBox_geomorphon_skip">
+            <property name="minimum"><number>0</number></property>
+            <property name="maximum"><number>100</number></property>
+            <property name="value"><number>0</number></property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_gm_flat">
+            <property name="text">
+             <string>Flatness threshold:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_geomorphon_flat">
+            <property name="decimals"><number>3</number></property>
+            <property name="minimum"><double>0.000000000000000</double></property>
+            <property name="maximum"><double>100.000000000000000</double></property>
+            <property name="singleStep"><double>0.100000000000000</double></property>
+            <property name="value"><double>1.000000000000000</double></property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_gm_dist">
+            <property name="text">
+             <string>Distance:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QSpinBox" name="spinBox_geomorphon_dist">
+            <property name="minimum"><number>0</number></property>
+            <property name="maximum"><number>100000</number></property>
+            <property name="value"><number>0</number></property>
+           </widget>
+          </item>
+          <item row="4" column="0" colspan="2">
+           <widget class="QWidget" name="widget_geomorphon_flags">
+            <layout class="QHBoxLayout" name="horizontalLayout_geomorphon_flags">
+             <item>
+              <widget class="QCheckBox" name="checkBox_geomorphon_m">
+               <property name="text"><string>-m (use metric)</string></property>
+               <property name="checked"><bool>false</bool></property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_geomorphon_e">
+               <property name="text"><string>-e (extended forms)</string></property>
+               <property name="checked"><bool>false</bool></property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="5" column="0" colspan="2">
+           <widget class="QCheckBox" name="checkBox_geomorphon_hydro">
+            <property name="text">
+             <string>Also calculate hydrography from the DEM</string>
+            </property>
+            <property name="checked"><bool>true</bool></property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_geom_raster_upload">
+         <layout class="QGridLayout" name="gridLayout_geom_raster_upload">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_geomorphon_raster">
+            <property name="text">
+             <string>Geomorphon raster:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="lineEdit_geomorphon_raster">
+            <property name="toolTip">
+             <string>Upload a precomputed geomorphon raster. The DEM above, if provided, will be used only for hydrography.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="pushButton_geomorphon_raster">
+            <property name="text">
+             <string>Browse...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" colspan="3">
+           <widget class="QLabel" name="label_geomorphon_raster_hint">
+            <property name="text">
+             <string>The DEM above remains optional here and is used only to derive hydrography (Strahler), not geomorphons.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="button_box">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::Reset</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources />
+ <connections>
+  <connection>
+   <sender>button_box</sender>
+   <signal>accepted()</signal>
+   <receiver>GeodiversityCalculatorMaxProDialogBase</receiver>
+   <slot>accept()</slot>
+  </connection>
+  <connection>
+   <sender>button_box</sender>
+   <signal>rejected()</signal>
+   <receiver>GeodiversityCalculatorMaxProDialogBase</receiver>
+   <slot>reject()</slot>
+  </connection>
+ </connections>
+</ui>
